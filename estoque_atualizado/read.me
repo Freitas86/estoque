@@ -1,0 +1,61 @@
+------- Para rodar o projeto, seguir os comandos abaixo -------
+
+-Inicialize o projeto Node.js :
+ npm init -y
+
+-Instale o TypeScript
+ npm install typescript --save-dev
+
+-Crie (ou substitua) o tsconfig.json
+ {
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true
+  },
+  "include": ["src"]
+}
+
+-Compile o projeto
+ npx tsc
+
+-Execute o projeto
+node dist/index.js
+
+
+
+
+
+
+------------------------------------------ ## ------------------------------------------
+
+Alterações feitas para o padrão de projetos:
+
+
+1. Organização da estrutura:
+
+  src/
+  ├── controllers/
+  │   └── estoqueController.ts   ← Controla o fluxo entre view e service
+  ├── models/
+  │   └── produtoModel.ts        ← Representa o modelo de dados (Produto)
+  ├── services/
+  │   └── estoqueService.ts      ← Contém a lógica de negócio (estoque)
+  ├── views/
+  │   └── estoqueView.ts         ← Exibe dados no console
+  ├── index.ts                   ← Ponto de entrada da aplicação
+
+
+2. Separação de Responsabilidades:
+
+|       Componente	    |          Responsabilidade                        | 
+|--------------------------------------------------------------------------|
+| produtoModel.ts	      |   Define o tipo Produto e função criarProduto()  |
+| estoqueService.ts	    |   Lógica de adicionar, baixar e remover produtos |
+| estoqueView.ts	      |   Apresentação dos produtos no console           |
+| estoqueController.ts  |   Faz a ponte entre Service e View               |
+| index.ts	            |   Roda o fluxo principal do sistema              |
+
+

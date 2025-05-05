@@ -1,0 +1,37 @@
+Sequência de comandos para rodar o projeto no terminal:
+
+
+-------------------------------------------------------------------------
+
+COMANDO: tsc --init       
+
+Irá criar o tsconfig.json
+
+-------------------------------------------------------------------------
+
+Modificar o tsconfig.json para:
+
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "strict": true
+  },
+  "include": [
+    "*.ts"
+  ]
+}
+
+-------------------------------------------------------------------------
+
+COMANDO: tsc
+
+Irá compila os arquivos .TS para .JS
+
+-------------------------------------------------------------------------
+
+COMANDO: node dist/index.js
+
+Irá rodar o projeto no terminal
