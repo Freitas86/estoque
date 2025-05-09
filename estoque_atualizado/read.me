@@ -58,4 +58,50 @@ Alterações feitas para o padrão de projetos:
 | estoqueController.ts  |   Faz a ponte entre Service e View               |
 | index.ts	            |   Roda o fluxo principal do sistema              |
 
+Padrôes De Software utilizados:
 
+1. Padrão MVC (Model-View-Controller)
+Descrição: O padrão MVC separa a aplicação em três camadas principais: Model, View e Controller, promovendo separação de responsabilidades.
+
+Aplicação no Sistema:
+
+Model: produtoModel.ts — Representa os dados do sistema (neste caso, os produtos do estoque).
+
+View: estoqueView.ts — Responsável por exibir informações ao usuário, formatando a saída dos dados.
+
+Controller: estoqueController.ts — Recebe entradas (como comandos do usuário), interage com o service/modelo e atualiza a View.
+
+2. Padrão Service Layer
+Descrição: Cria uma camada intermediária entre o Controller e o Model, centralizando as regras de negócio.
+
+Aplicação no Sistema:
+
+Arquivo: estoqueService.ts — Responsável pela lógica de manipulação dos produtos, como adicionar, remover e atualizar itens do estoque.
+
+3. Padrão DAO (Data Access Object) – em forma simplificada
+Descrição: Fornece uma abstração para acesso aos dados, geralmente um banco de dados, separando a lógica de persistência da lógica de negócio.
+
+Aplicação no Sistema:
+
+Embora não exista um banco de dados explícito, a manipulação direta da lista de produtos no estoqueService.ts funciona como um DAO simplificado.
+
+4. Padrão Singleton (implícito em serviços)
+Descrição: Garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso a ela.
+
+Aplicação no Sistema:
+
+A instância do serviço de estoque (EstoqueService) é criada uma vez e reutilizada em index.ts, atuando como um singleton manualmente gerenciado.
+
+5. Padrão Separation of Concerns (SoC)
+Descrição: Divide o sistema em partes bem definidas, onde cada parte tem uma responsabilidade distinta.
+
+Aplicação no Sistema:
+
+A divisão entre model, controller, view e service mostra claramente uma preocupação em manter responsabilidades separadas e bem organizadas.
+
+6. Padrão Dependency Injection (forma manual)
+Descrição: Injeta dependências de um componente (ex: services) em outro (ex: controller), facilitando testes e desacoplamento.
+
+Aplicação no Sistema:
+
+Em index.ts, o EstoqueController recebe uma instância de EstoqueService via construtor, o que caracteriza uma forma de injeção de dependência.
